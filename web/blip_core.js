@@ -110,7 +110,12 @@ var BLIP_GAMES = {
                          buttons: [{ key: ' ', code: 'Space', label: 'START' }],
                          keys: Object.assign({}, TWO_PLAYER_KEYS, { p2button2: TWO_PLAYER_KEYS.p2button1 }),
                          touch: { kind: 'drag', hint: 'Drag left/right to steer &middot; tap to start',
-                                  mouseHint: 'Point left/right to steer &middot; click to start' } }
+                                  mouseHint: 'Point left/right to steer &middot; click to start' } },
+  // Point karate for one. Down on the stick blocks; the two caps are punch and crane.
+  dojo:               { name: 'DOJO', accent: '208, 106, 56', touchControls: [['MOVE',['D-PAD']],['BLOCK',['DOWN']],['PUNCH',['RED BUTTON']],['CRANE',['BLUE BUTTON']]], controls: [['MOVE',['←','→'],['A','D']],['BLOCK',['↓'],['S']],['PUNCH',['SPACE'],['F']],['CRANE',['Z'],['G']]],
+                         buttons: [{ key: 'f', code: 'KeyF', label: 'PUNCH' },
+                                   { key: 'g', code: 'KeyG', label: 'CRANE' }],
+                         stick: { engage: 10, release: 6, maxR: 54, hyst: 10 } }
 };
 
 // Pick out the game slug from a shell-page URL, e.g. "/blip/serpent/index.html"

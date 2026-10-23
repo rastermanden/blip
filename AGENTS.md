@@ -4,7 +4,7 @@
 
 The `index.wasm` and `index.html` files under each game's directory in `web/`
 (`serpent`, `bouncer`, `defender`, `rally`, `meteors`, `raider`,
-`brawler`, `bubbler`, `adder`) are **build outputs**. They are
+`brawler`, `bubbler`, `adder`, `dojo`) are **build outputs**. They are
 produced by compiling Rust source with `cargo build --release --target
 wasm32-unknown-unknown` and copying `target/wasm32-unknown-unknown/release/<game>.wasm`
 into the game's web directory; `index.html` is a copy of `web/shell.html`.
@@ -111,7 +111,7 @@ sentence-case headings, "tap" and "touch and hold", "Home Screen".
 
 ```
 rustup target add wasm32-unknown-unknown   # one-time
-./build_web.sh                              # recompile all nine games
+./build_web.sh                              # recompile all ten games
 ```
 
 ### Tests
@@ -119,7 +119,7 @@ rustup target add wasm32-unknown-unknown   # one-time
 Run the test suite locally before pushing:
 
 `npm run test:all` runs Rust tests, rebuilds the web games, then runs every
-browser suite sequentially and visual checks for all nine games. Approve
+browser suite sequentially and visual checks for the nine taped games. Approve
 this command with the reusable `npm run test:all` prefix when the sandbox
 blocks local servers or Chromium. To verify access without running the
 full suite, use `npm run test:all -- --check-access`. Database tests still
@@ -154,7 +154,7 @@ For native development:
 
 ```
 cargo run -p serpent            # or bouncer, rally, defender,
-                                # meteors, raider, brawler, bubbler, adder
+                                # meteors, raider, brawler, bubbler, adder, dojo
 ```
 
 ### Home-screen icons

@@ -14,7 +14,7 @@ import { chromium } from 'playwright';
 import { openPage, WEB_DIR, listenOn } from './lib/harness.mjs';
 import { chromiumBinary } from './lib/chromium-binary.mjs';
 
-const GAMES = ['serpent', 'bouncer', 'defender', 'rally', 'meteors', 'raider', 'brawler', 'bubbler', 'adder'];
+const GAMES = ['serpent', 'bouncer', 'defender', 'rally', 'meteors', 'raider', 'brawler', 'bubbler', 'adder', 'dojo'];
 
 /** A phone with the games' wasm held back: these tests read the pages, not play them. */
 async function phone(t, opts = {}) {
@@ -281,7 +281,7 @@ test('the Guide sets the manual\'s own chapters as an iOS guide, without the cab
   await page.locator('#guide[data-ready]').waitFor();
   const groups = await page.locator('#toc .group-title').allTextContents();
   assert.deepEqual(groups, ['Getting started', 'Games', 'History', 'About', 'This guide']);
-  assert.equal(await page.locator('#toc a[href^="#/t/game-"]').count(), 9);
+  assert.equal(await page.locator('#toc a[href^="#/t/game-"]').count(), 10);
   const titles = await page.locator('#toc .row').allTextContents();
   assert.ok(titles.some((x) => /Play on iPhone and iPad/.test(x)), 'the app\'s own section');
   assert.ok(!titles.some((x) => /Choosing a game/.test(x)), 'the cabinet\'s card rack is left out');
