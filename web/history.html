@@ -137,6 +137,7 @@
     .game-section.brawler  .game-title { color: #dc3c28;        text-shadow: 0 0 12px rgba(220,60,40,0.4); }
     .game-section.bubbler  .game-title { color: #78d2ff;        text-shadow: 0 0 12px rgba(120,210,255,0.4); }
     .game-section.adder    .game-title { color: #e0a034;        text-shadow: 0 0 12px rgba(224,160,52,0.4); }
+    .game-section.dojo     .game-title { color: #d06a38;        text-shadow: 0 0 12px rgba(208,106,56,0.4); }
 
     .game-section.rally    .section-body { border-left-color: rgba(220,50,50,0.3); }
     .game-section.bouncer  .section-body { border-left-color: rgba(0,200,200,0.3); }
@@ -147,6 +148,7 @@
     .game-section.brawler  .section-body { border-left-color: rgba(220,60,40,0.3); }
     .game-section.bubbler  .section-body { border-left-color: rgba(120,210,255,0.3); }
     .game-section.adder    .section-body { border-left-color: rgba(224,160,52,0.3); }
+    .game-section.dojo     .section-body { border-left-color: rgba(208,106,56,0.3); }
 
     .impl-label {
       font-size: 9px;
@@ -206,6 +208,8 @@
     .game-section.bubbler  .inline-link:hover { color: #b0e6ff; border-bottom-color: rgba(120,210,255,0.8); }
     .game-section.adder    .inline-link { color: #e0a034;        border-bottom-color: rgba(224,160,52,0.3); }
     .game-section.adder    .inline-link:hover { color: #f6c874; border-bottom-color: rgba(224,160,52,0.8); }
+    .game-section.dojo     .inline-link { color: #d06a38;        border-bottom-color: rgba(208,106,56,0.3); }
+    .game-section.dojo     .inline-link:hover { color: #f0a070; border-bottom-color: rgba(208,106,56,0.8); }
 
     .studios { display: flex; flex-direction: column; gap: 0; }
     .studio { padding: 20px 0; border-bottom: 1px solid #111; }
@@ -504,6 +508,26 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ====== DOJO ====== -->
+  <section class="game-section dojo">
+    <div class="game-header">
+      <div class="game-title">Dojo</div>
+      <div class="game-origin" data-i18n="dojoOrigin">Inspired by the film &mdash; 1984</div>
+    </div>
+    <h2 style="margin-bottom:24px;" data-i18n="dojoSub">A STUDENT, A RIVAL, AND A SHORT ROUND</h2>
+    <div class="section-body">
+      <p data-i18n="dojoP1">The Karate Kid (Columbia Pictures, 1984) is a film about a teenager who learns karate and fights short matches. Dojo is inspired by that film. It is an original game, not an official product, and it does not use the film's characters, stills, or music.</p>
+      <p data-i18n="dojoP2">Each round lasts twenty-six seconds or ends at three points. A punch scores one. Holding a block stops a punch and fills a focus meter; hold it too long and the guard drops. A crane kick spends that focus and scores two, or one if it lands through a guard. Win the round and a short drill on a wooden post fills the next round's focus. Three lives. Belts run from white to black, and even rounds move the fight out into the yard.</p>
+      <div class="impl-label" data-i18n="implLabel">► Other implementations online</div>
+      <ul class="impl-list">
+        <li data-i18n="dojoImpl1"><a class="inline-link" href="https://en.wikipedia.org/wiki/The_Karate_Kid_(1984_film)" target="_blank" rel="noopener">Wikipedia &mdash; The Karate Kid</a> — The 1984 film this game is inspired by. Dojo is not an official product.</li>
+        <li data-i18n="dojoImpl2"><a class="inline-link" href="https://en.wikipedia.org/wiki/Karate" target="_blank" rel="noopener">Wikipedia &mdash; Karate</a> — The martial art: punches, blocks, and kicks.</li>
+      </ul>
+    </div>
+  </section>
+
 </div>
   </div>
   <button class="manual-return" type="button" onclick="location.href='index.html'"><span>↩&nbsp; CLOSE BOOK · RETURN TO ARCADE</span></button>
@@ -601,7 +625,13 @@
         adderP1:      'Viper is a top-down snake for the Amiga and DOS: shareware, 1994, and remembered by very few. Three things set it apart from the snake games around it. The vipers move freely in any direction rather than along a grid. The bodies have holes in them, and passing through one pays. And a pit holds several vipers at once, computer-controlled ones included — its MobyGames entry lists up to six players, on one screen. It was played with a keyboard or a mouse.',
         adderP2:      'Adder makes the pit a trail arena: all worms move at a constant 85 px/s, leaving thin solid trails that grow throughout the round. No food, eggs, shedding or boost/strike. Dim gaps stay passable after crossing; only the first pass scores 50 × round. Dead worms leave their trails and stay out until next round. Last alive wins; trails reset next round. Two humans can play against CPUs, each with three lives across rounds, losing one on elimination. Game over when no human has lives left.',
         adderImpl1:   '<a class="inline-link" href="https://www.mobygames.com/game/72914/viper/" target="_blank" rel="noopener">MobyGames — Viper</a> — The original: a single-player shareware snake variant whose tail grows as it feeds.',
-        adderImpl2:   '<a class="inline-link" href="https://www.myabandonware.com/game/viper-7ge" target="_blank" rel="noopener">My Abandonware — Viper</a> — The 1994 shareware download, for an Amiga or DOS emulator.'
+        adderImpl2:   '<a class="inline-link" href="https://www.myabandonware.com/game/viper-7ge" target="_blank" rel="noopener">My Abandonware — Viper</a> — The 1994 shareware download, for an Amiga or DOS emulator.',
+        dojoOrigin:   'Inspired by the film — 1984',
+        dojoSub:      'A STUDENT, A RIVAL, AND A SHORT ROUND',
+        dojoP1:       'The Karate Kid (Columbia Pictures, 1984) is a film about a teenager who learns karate and fights short matches. Dojo is inspired by that film. It is an original game, not an official product, and it does not use the film\'s characters, stills, or music.',
+        dojoP2:       'Each round lasts twenty-six seconds or ends at three points. A punch scores one. Holding a block stops a punch and fills a focus meter; hold it too long and the guard drops. A crane kick spends that focus and scores two, or one if it lands through a guard. Win the round and a short drill on a wooden post fills the next round\'s focus. Three lives. Belts run from white to black, and even rounds move the fight out into the yard.',
+        dojoImpl1:    '<a class="inline-link" href="https://en.wikipedia.org/wiki/The_Karate_Kid_(1984_film)" target="_blank" rel="noopener">Wikipedia — The Karate Kid</a> — The 1984 film this game is inspired by. Dojo is not an official product.',
+        dojoImpl2:    '<a class="inline-link" href="https://en.wikipedia.org/wiki/Karate" target="_blank" rel="noopener">Wikipedia — Karate</a> — The martial art: punches, blocks, and kicks.'
       },
 
       da: {
@@ -682,7 +712,13 @@
         adderP1:      'Viper er en slange set fra oven til Amiga og DOS: shareware, 1994, og husket af meget få. Tre ting skilte den ud fra slangspillene omkring den. Slangerne bevæger sig frit i alle retninger i stedet for langs et gitter. Kroppene har huller i sig, og at komme igennem et giver point. Og en grube rummer flere slanger på én gang, også computerstyrede — dens MobyGames-side nævner op til seks spillere på én skærm. Den blev spillet med tastatur eller mus.',
         adderP2:      'Adder gør gruben til en arena af spor: alle slanger bevæger sig med konstante 85 px/s og efterlader tynde, faste spor, der vokser hele runden. Ingen mad, æg, hamskifte, boost eller hug. Dæmpede huller forbliver passable efter en passage; kun første passage giver 50 × rundenummer. Døde slanger efterlader deres spor og er ude indtil næste runde. Den sidste i live vinder; sporene nulstilles næste runde. To mennesker kan spille mod CPU’er, hver med tre liv på tværs af runderne og ét tabt ved eliminering. Spillet slutter, når ingen mennesker har liv tilbage.',
         adderImpl1:   '<a class="inline-link" href="https://www.mobygames.com/game/72914/viper/" target="_blank" rel="noopener">MobyGames — Viper</a> — Originalen: en enkeltspliller-shareware-slange, hvis hale vokser, mens den spiser.',
-        adderImpl2:   '<a class="inline-link" href="https://www.myabandonware.com/game/viper-7ge" target="_blank" rel="noopener">My Abandonware — Viper</a> — Shareware-downloadet fra 1994, til en Amiga- eller DOS-emulator.'
+        adderImpl2:   '<a class="inline-link" href="https://www.myabandonware.com/game/viper-7ge" target="_blank" rel="noopener">My Abandonware — Viper</a> — Shareware-downloadet fra 1994, til en Amiga- eller DOS-emulator.',
+        dojoOrigin:   'Inspireret af filmen — 1984',
+        dojoSub:      'EN ELEV, EN MODSTANDER OG EN KORT RUNDE',
+        dojoP1:       'The Karate Kid (Columbia Pictures, 1984) er en film om en teenager, der lærer karate og kæmper korte kampe. Dojo er inspireret af den film. Det er et originalt spil, ikke et officielt produkt, og det bruger ikke filmens personer, stillbilleder eller musik.',
+        dojoP2:       'Hver runde varer seksogtyve sekunder eller slutter ved tre point. Et slag giver ét. En blok stopper et slag og fylder et fokusmeter; hold den for længe, og garden falder. Et tranespark bruger fokus og giver to point, eller ét hvis det rammer gennem en blok. Vind runden, og en kort øvelse på en træpæl fylder næste rundes fokus. Tre liv. Bælterne går fra hvidt til sort, og lige runder flytter kampen ud i gården.',
+        dojoImpl1:    '<a class="inline-link" href="https://en.wikipedia.org/wiki/The_Karate_Kid_(1984_film)" target="_blank" rel="noopener">Wikipedia — The Karate Kid</a> — Filmen fra 1984, som spillet er inspireret af. Dojo er ikke et officielt produkt.',
+        dojoImpl2:    '<a class="inline-link" href="https://en.wikipedia.org/wiki/Karate" target="_blank" rel="noopener">Wikipedia — Karate</a> — Kampkunsten: slag, blokke og spark.'
       },
 
       ja: {
@@ -763,7 +799,13 @@
         adderP1:      'ViperはAmigaとDOSの見下ろし型スネーク——1994年のシェアウェアで、覚えている人はほとんどいません。周りのスネークゲームと違った点は三つ。蛇は格子に沿わず、どの方向へも自由に動く。胴体には穴が開いていて、通れば点になる。そして一つのピットに何匹も同時に入れること——MobyGamesの項目には、同一画面で最大六人とあります。操作はキーボードかマウス。',
         adderP2:      'Adderのピットは軌跡のアリーナ。全ての蛇は毎秒85pxの一定速度で進み、細い実線の軌跡をラウンド中ずっと伸ばします。エサも卵も脱皮も加速も攻撃もありません。薄暗い隙間は通過後も通れ、最初の通過だけ50×ラウンド数の得点。倒れた蛇の軌跡は残り、蛇は次のラウンドまで復帰しません。最後の一匹が勝ち、次のラウンドで軌跡はリセット。人間二人がCPUと対戦でき、各3ライフをラウンドをまたいで持ち、脱落で1つ失います。人間全員のライフがなくなるとゲームオーバー。',
         adderImpl1:   '<a class="inline-link" href="https://www.mobygames.com/game/72914/viper/" target="_blank" rel="noopener">MobyGames — Viper</a> — 原作の項目：食べるほど尾が伸びる、一人用シェアウェアのスネーク変種。',
-        adderImpl2:   '<a class="inline-link" href="https://www.myabandonware.com/game/viper-7ge" target="_blank" rel="noopener">My Abandonware — Viper</a> — 1994年のシェアウェア版。AmigaかDOSのエミュレータで遊べます。'
+        adderImpl2:   '<a class="inline-link" href="https://www.myabandonware.com/game/viper-7ge" target="_blank" rel="noopener">My Abandonware — Viper</a> — 1994年のシェアウェア版。AmigaかDOSのエミュレータで遊べます。',
+        dojoOrigin:   '1984年の映画に着想',
+        dojoSub:      '生徒とライバルと、短い一本',
+        dojoP1:       'The Karate Kid（Columbia Pictures、1984年）は、空手を学び短い試合を戦う少年の映画です。Dojoはその映画に着想を得たオリジナルで、公式作品ではありません。映画の人物、スチル、音楽は使っていません。',
+        dojoP2:       '一本は26秒、または3点で終わります。突きは1点。受けは突きを止め、集中を溜めます。長く受けすぎるとガードが落ちます。鶴キックは集中を使い2点、受けの中に入れば1点。勝つと木の杭での短い稽古が次の一本の集中を満たします。ライフは3。帯は白から黒へ。偶数ラウンドは夕暮れの庭です。',
+        dojoImpl1:    '<a class="inline-link" href="https://en.wikipedia.org/wiki/The_Karate_Kid_(1984_film)" target="_blank" rel="noopener">Wikipedia — The Karate Kid</a> — 着想元の1984年の映画。Dojoは公式作品ではありません。',
+        dojoImpl2:    '<a class="inline-link" href="https://en.wikipedia.org/wiki/Karate" target="_blank" rel="noopener">Wikipedia — Karate</a> — 突き、受け、蹴りのある武道。'
       }
 
     };

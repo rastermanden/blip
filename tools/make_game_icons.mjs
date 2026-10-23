@@ -1,7 +1,7 @@
 // Each game as its own home-screen app: a small version of its cabinet card
 // as the icon, and a manifest that starts the game, not the cabinet.
 //
-//   node tools/make_game_icons.mjs            (after a screenshot changes)
+//   node tools/make_game_icons.mjs [game ...] (after a screenshot changes)
 //
 // Writes, per game in web/<slug>/: icon-180.png (apple-touch-icon),
 // icon-192.png, icon-512.png, icon-maskable-512.png and manifest.json; and
@@ -28,6 +28,7 @@ const CROPS = {
   brawler:           { art: 'card.png',       cx: 0.50, cy: 0.36, w: 0.82 },
   bubbler:           { art: 'screenshot.png', cx: 0.50, cy: 0.70, w: 0.56 },
   adder:             { art: 'screenshot.png', cx: 0.50, cy: 0.40, w: 0.86 },
+  dojo:              { art: 'screenshot.png', cx: 0.50, cy: 0.62, w: 0.90 },
 };
 
 // Full bleed, as a modern home screen expects: the game's picture to the
@@ -56,6 +57,7 @@ html, body { width: 512px; height: 512px; overflow: hidden; background: #000; }
 /** Title case for the label under the icon: BUBBLER -> Bubbler. */
 const titleCase = (s) => s.toLowerCase().replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
+const only = process.argv.slice(2);
 const server = createFileServer();
 await listenOn(server, 0);
 const origin = `http://127.0.0.1:${server.address().port}`;
@@ -69,6 +71,7 @@ try {
   const games = await page.evaluate(() => Object.fromEntries(Object.entries(BLIP_GAMES).map(([slug, g]) => [slug, { name: g.name, accent: g.accent }])));
 
   for (const [slug, game] of Object.entries(games)) {
+    if (only.length && !only.includes(slug)) continue;
     const crop = CROPS[slug];
     if (!crop) throw new Error(`no crop for ${slug}: add one to CROPS`);
     if (!existsSync(path.join(WEB_DIR, slug, crop.art))) throw new Error(`${slug}/${crop.art} is missing`);
@@ -113,6 +116,7 @@ try {
   }
 
   // The Guide: an open book on orange, as in the home screen's dock.
+  if (!only.length) {
   const GUIDE_HTML = `<!doctype html><html><head><style>
 * { margin: 0; } html, body { width: 512px; height: 512px; overflow: hidden; }
 .icon { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(160deg, #ffa53a, #ff7a00); }
@@ -141,6 +145,7 @@ svg { width: 320px; filter: drop-shadow(0 6px 10px rgba(120, 50, 0, .35)); }
     ],
   }, null, 2) + '\n');
   console.log('[ok] guide');
+  }
 } finally {
   await browser.close();
   await new Promise((r) => server.close(r));

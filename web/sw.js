@@ -1,4 +1,4 @@
-var CACHE = "blip-v711";
+var CACHE = "blip-v712";
 
 var ASSETS = [
   "/blip/",
@@ -170,6 +170,15 @@ var ASSETS = [
   "/blip/adder/icon-maskable-512.png",
   "/blip/adder/screenshot.png",
   "/blip/adder/attract.webp",
+  "/blip/dojo/index.html",
+  "/blip/dojo/index.wasm",
+  "/blip/dojo/manifest.json",
+  "/blip/dojo/icon-180.png",
+  "/blip/dojo/icon-192.png",
+  "/blip/dojo/icon-512.png",
+  "/blip/dojo/icon-maskable-512.png",
+  "/blip/dojo/screenshot.png",
+  "/blip/dojo/attract.webp",
 ];
 
 self.addEventListener("install", function (e) {

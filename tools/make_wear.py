@@ -90,6 +90,7 @@ DECK_WEAR = {
     "serpent": deck_wear(107, 19, 160, polish=[(49, 68, 130, 36, "rgba(210,185,130,.16)")]),
     "brawler": deck_wear(108, 63, 23, burns=[(42, 12, 5, 3)], polish=[(76, 74, 55, 28, "rgba(170,145,120,.14)")]),
     "adder": deck_wear(109, 51, -54, rings=[(45, 69, 18)], burns=[(84, 15, 4, 3)]),
+    "dojo": deck_wear(110, 47, 12, rings=[(38, 70, 20)], polish=[(62, 71, 48, 22, "rgba(190,140,90,.12)")]),
 }
 
 

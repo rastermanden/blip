@@ -216,7 +216,7 @@ for (const held of [true, false]) {
   });
 }
 
-for (const slug of ['serpent', 'bouncer', 'rally', 'defender', 'meteors', 'raider', 'brawler', 'bubbler', 'adder']) {
+for (const slug of ['serpent', 'bouncer', 'rally', 'defender', 'meteors', 'raider', 'brawler', 'bubbler', 'adder', 'dojo']) {
   test(`${slug} keeps running when the clock jumps back and then a long way forward`, async (t) => {
     const { page, origin } = await openPage(t, 'chromium', { viewport: { width: 390, height: 844 } });
     await page.goto(`${origin}/${slug}/index.html`);
@@ -274,7 +274,7 @@ async function cardSettled(page) {
   await page.waitForFunction(() => document.getElementById('controls-card').getAnimations().length === 0);
 }
 
-const SLUGS = ['serpent', 'bouncer', 'rally', 'defender', 'meteors', 'raider', 'brawler', 'bubbler', 'adder'];
+const SLUGS = ['serpent', 'bouncer', 'rally', 'defender', 'meteors', 'raider', 'brawler', 'bubbler', 'adder', 'dojo'];
 for (const [label, phoneish] of [['a PC', false], ['a phone', true]]) {
   test(`on ${label} the controls card stays away until its button is pressed, then shows every control`, async (t) => {
     const size = phoneish ? { width: 390, height: 844 } : { width: 1280, height: 800 };

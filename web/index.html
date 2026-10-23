@@ -210,6 +210,7 @@
     .card-brawler    { --c: #dc3c28;        }
     .card-bubbler    { --c: #78d2ff;        }
     .card-adder      { --c: #e0a034;        }
+    .card-dojo       { --c: #d06a38;        }
 
     /* ---- keyboard-recommended chip ---- */
     .badge-kb {
@@ -1136,6 +1137,7 @@
     #game-grid .card-brawler {--side-art:repeating-conic-gradient(from 0deg at 50% 45%,#ffd84a33 0 8deg,transparent 8deg 16deg),radial-gradient(circle at 50% 45%,#ffd84a 0 14%,transparent 15%)}
     #game-grid .card-bubbler {--ball:#45b6f0;--side-art:radial-gradient(circle at 30% 30%,#fff6 0 3px,transparent 4px,transparent 0 24px,#fffb 25px 28px,transparent 29px),radial-gradient(circle at 66% 58%,transparent 0 18px,#fff9 19px 21px,transparent 22px),radial-gradient(circle at 40% 80%,transparent 0 11px,#fff8 12px 14px,transparent 15px)}
     #game-grid .card-adder {--ball:#e09a2a;--side-art:radial-gradient(ellipse 60% 30% at 40% 30%,transparent 0 62%,#ffe08a 63% 70%,transparent 71%),radial-gradient(ellipse 50% 40% at 60% 64%,transparent 0 62%,#7ad8ff 63% 70%,transparent 71%)}
+    #game-grid .card-dojo {--ball:#d06a38;--side-art:linear-gradient(90deg,transparent 0 22%,#f2d27a 22% 34%,transparent 34%),repeating-linear-gradient(180deg,transparent 0 14px,#fff4 14px 16px)}
     :root[data-layout="landscape"] #game-grid .card {flex-direction:column;gap:0}
     @media (prefers-reduced-motion:reduce) {
       #game-grid .card {transition:none!important}
@@ -1286,6 +1288,17 @@
       <div class="card-desc"   data-i18n="adderDesc"></div>
     </article>
 
+    <!-- DOJO -->
+    <article class="card card-dojo" data-game-url="dojo/index.html">
+      <span class="badge-touch"><svg class="bt-ipad" viewBox="0 0 16 20" aria-hidden="true"><rect x="1" y="1" width="14" height="18" rx="2.6"/><circle class="bt-tip" cx="8" cy="10" r="1.7"/><circle class="bt-ring" cx="8" cy="10" r="4"/></svg><span data-i18n="badgeTouch">TOUCH</span></span>
+      <div class="card-shot-wrap">
+        <img class="card-shot" src="dojo/screenshot.png" alt="Dojo gameplay">
+      </div>
+      <div class="card-title">DOJO</div>
+      <div class="card-genre"  data-i18n="dojoGenre"></div>
+      <div class="card-desc"   data-i18n="dojoDesc"></div>
+    </article>
+
   </div>
     </div>
   </div>
@@ -1425,6 +1438,10 @@
         bubblerControlsTouch: 'TOUCH = BUBBLE &middot; SLIDE = RUN &middot; SWIPE UP = JUMP &middot; 2P JOIN FOR FRIEND',
         skyRaiderControlsTouch: 'D-PAD FLY &middot; BUTTON FIRE',
         adderControlsTouch: 'HORIZONTAL POSITION STEERS &middot; TAP TO START',
+        dojoGenre:         'POINT KARATE',
+        dojoDesc:          'A student in a white gi fights short rounds. A punch scores one, a block fills focus, and a crane kick spends it for two. First to three, or the bell. Inspired by the film — not an official product.',
+        dojoControls:      'A/D OR ARROWS MOVE &middot; DOWN OR S BLOCK &middot; SPACE OR F PUNCH &middot; Z OR G CRANE',
+        dojoControlsTouch: 'D-PAD MOVES &middot; DOWN BLOCKS &middot; RED PUNCH &middot; BLUE CRANE',
       },
 
       ja: {
@@ -1478,6 +1495,10 @@
         bubblerControlsTouch: 'タッチで泡 &middot; スライドで走る &middot; 上スワイプでジャンプ &middot; 2P JOINで友だち参加',
         skyRaiderControlsTouch: '方向キーで飛行 &middot; ボタンで発射',
         adderControlsTouch: '指の左右の位置で旋回 &middot; タップでスタート',
+        dojoGenre:         'ポイント空手',
+        dojoDesc:          '白い道着の生徒が短い試合を戦う。突きは1点、受けで集中が溜まり、集中を使う鶴キックは2点。先に3点、または鐘。<br>1984年の映画に着想を得たオリジナルで、公式作品ではない。',
+        dojoControls:      'A/Dか矢印で移動 &middot; 下かSで受け &middot; SPACEかFで突き &middot; ZかGで鶴キック',
+        dojoControlsTouch: '十字キーで移動 &middot; 下で受け &middot; 赤で突き &middot; 青で鶴キック',
       },
 
       da: {
@@ -1531,6 +1552,10 @@
         bubblerControlsTouch: 'BER&Oslash;RING = BOBLE &middot; GLID = L&Oslash;B &middot; SWIPE OP = HOP &middot; 2P JOIN FOR EN VEN',
         skyRaiderControlsTouch: 'RETNINGSKORS FLYV &middot; KNAP SKYD',
         adderControlsTouch: 'VANDRET POSITION STYRER &middot; TRYK FOR AT STARTE',
+        dojoGenre:         'POINTKARATE',
+        dojoDesc:          'En elev i hvid gi kæmper korte runder. Et slag giver ét point, en blok fylder fokus, og et tranespark bruger det for to. Først til tre, eller klokken.<br>Inspireret af filmen — ikke et officielt produkt.',
+        dojoControls:      'A/D ELLER PILENE GÅR &middot; NED ELLER S BLOKERER &middot; MELLEMRUM ELLER F SLAG &middot; Z ELLER G TRANESPARK',
+        dojoControlsTouch: 'STYREPIND BEVÆGER &middot; NED BLOKERER &middot; RØD SLAG &middot; BLÅ TRANESPARK',
       }
     };
 
@@ -1654,7 +1679,7 @@
         meteors:[2,'stick',2],serpent:[2,'stick',0],brawler:[2,'stick',2],adder:[2,'stick',1]}[slug]||[2,'stick',1];
       var players=panel[0],name=title?title.textContent.trim():'';
       card.dataset.machine=slug;title.classList.add('machine-marquee');
-      var legend={rally:'BAT · SERVE',bouncer:'MOVE · LAUNCH',defender:'MOVE · FIRE',bubbler:'RUN · BUBBLE · JUMP',raider:'STEER · FIRE',meteors:'TURN · THRUST · FIRE',serpent:'STEER',brawler:'MOVE · PUNCH · KICK',adder:'TURN LEFT · RIGHT'};
+      var legend={rally:'BAT · SERVE',bouncer:'MOVE · LAUNCH',defender:'MOVE · FIRE',bubbler:'RUN · BUBBLE · JUMP',raider:'STEER · FIRE',meteors:'TURN · THRUST · FIRE',serpent:'STEER',brawler:'MOVE · PUNCH · KICK',adder:'TURN LEFT · RIGHT',dojo:'MOVE · BLOCK · PUNCH · CRANE'};
       var screen=card.querySelector('.card-shot-wrap');
       var instructions=document.createElement('span');instructions.className='machine-instructions';instructions.setAttribute('aria-hidden','true');instructions.textContent=(players>1?'1 OR 2 PLAYERS · ':'')+(legend[slug]||'');screen.appendChild(instructions);
       var attract=document.createElement('span');attract.className='machine-attract';attract.setAttribute('aria-hidden','true');attract.innerHTML='<b>PRESS START</b><span class="machine-credit">CREDIT 0</span>';card.querySelector('.game-rom').appendChild(attract);

@@ -1,5 +1,5 @@
 # Blip Engine Arcade
-Nine arcade games built with the Rust `blip` engine and compiled to WebAssembly.
+Ten arcade games built with the Rust `blip` engine and compiled to WebAssembly.
 
 **[Play in the browser →](https://jacobandresen.github.io/blip/)**
 
@@ -16,6 +16,7 @@ Nine arcade games built with the Rust `blip` engine and compiled to WebAssembly.
 - **Raider** — vertical shooter with formations, flak and bosses.
 - **Brawler** — one-on-one fighting with ten fighters and a nine-fight ladder.
 - **Bubbler** — bubble-blowing platformer for one or two players.
+- **Dojo** — short rounds of point karate, inspired by the film and not an official product. Punch, block, and a crane kick.
 
 ---
 

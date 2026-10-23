@@ -172,7 +172,7 @@ test('the game shell', async (t) => {
     const catalogue = JSON.parse(await evaluate(cdp, `JSON.stringify((function(){var cards=[].slice.call(document.querySelectorAll('.card'));
       return {count:cards.length,slugs:cards.map(function(c){return c.getAttribute('data-game-url').split('/')[0]}),
         machines:cards.every(function(c){return !!c.querySelector('.machine-coinbox,.machine-start')})};})())`));
-    assert.equal(catalogue.count, 9);
+    assert.equal(catalogue.count, 10);
     assert.equal(catalogue.machines, true, 'every game has cabinet controls');
     assert.equal(await evaluate(cdp, "document.querySelectorAll('.lang-switcher,.left-badges').length"), 0,
       'the cabinet has no language or page badges');
@@ -195,7 +195,7 @@ test('the game shell', async (t) => {
     const titles = {
       serpent: 'SERPENT', bouncer: 'BOUNCER', defender: 'DEFENDER', rally: 'RALLY',
       meteors: 'METEORS', raider: 'RAIDER', brawler: 'BRAWLER', bubbler: 'BUBBLER',
-      adder: 'ADDER',
+      adder: 'ADDER', dojo: 'DOJO',
     };
     for (const [slug, title] of Object.entries(titles)) {
       await open(cdp, `${slug}/index.html`, 300);

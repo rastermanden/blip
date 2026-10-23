@@ -137,7 +137,7 @@ test('every machine has an attract strip of twelve frames, small enough to fetch
   const { readFileSync, statSync } = await import('node:fs');
   const web = new URL('../web/', import.meta.url);
   const sw = readFileSync(new URL('sw.js', web), 'utf8');
-  for (const slug of ['rally', 'bouncer', 'defender', 'bubbler', 'raider', 'meteors', 'serpent', 'brawler', 'adder']) {
+  for (const slug of ['rally', 'bouncer', 'defender', 'bubbler', 'raider', 'meteors', 'serpent', 'brawler', 'adder', 'dojo']) {
     const file = new URL(`${slug}/attract.webp`, web);
     const bytes = readFileSync(file);
     assert.equal(bytes.toString('latin1', 8, 12), 'WEBP', `${slug} is a WebP`);

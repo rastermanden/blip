@@ -13,6 +13,7 @@ members = [
     "crates/meteors",
     "crates/raider",
     "crates/adder",
+    "crates/dojo",
 ]
 
 [workspace.package]

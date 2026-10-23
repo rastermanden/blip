@@ -14,6 +14,7 @@ const GAMES = [
   ['serpent', 'SERPENT'],
   ['brawler', 'BRAWLER'],
   ['adder', 'ADDER'],
+  ['dojo', 'DOJO'],
 ];
 
 async function openArcade(t, width = 390, height = 844) {
@@ -346,7 +347,7 @@ test('a gamepad stick walks at the pace it is pushed', async (t) => {
     const pace = await page.evaluate(() => new Promise((done) => {
       const read = () => [performance.now(), Number(document.getElementById('game-grid').dataset.aislePos)];
       const [t0, p0] = read();
-      setTimeout(() => { const [t1, p1] = read(); done((((p1 - p0) % 9) + 9) % 9 / ((t1 - t0) / 1000)); }, 1000);
+      setTimeout(() => { const [t1, p1] = read(); const n = document.querySelectorAll('#game-grid .card').length; done((((p1 - p0) % n) + n) % n / ((t1 - t0) / 1000)); }, 1000);
     }));
     await page.evaluate(() => { window.__pad.axes[0] = 0; });
     await aisleStill(page);
@@ -382,7 +383,7 @@ test('the machines are silent until the first key, then the nearest is loudest a
   await page.waitForFunction(() => blipArcadeSound.state().running);
   const heard = (await room(page)).machines;
   const by = Object.fromEntries(heard.map((m) => [m.slug, m]));
-  assert.deepEqual(heard.map((m) => m.slug).sort(), ['adder', 'bouncer', 'brawler', 'defender', 'rally'],
+  assert.deepEqual(heard.map((m) => m.slug).sort(), ['adder', 'bouncer', 'defender', 'dojo', 'rally'],
     'the faced machine and two either side');
   assert.equal(by.rally.level, 1);
   assert.equal(by.rally.pan, 0);
@@ -463,7 +464,7 @@ test('only the machines near you fetch and play their attract loops', async (t) 
   await page.goto(`${origin}/index.html`);
   await page.waitForFunction(() => document.querySelector('.card-focused .machine-start') && !document.documentElement.hasAttribute('data-cabinet-arranging'));
   await page.waitForFunction(() => document.querySelectorAll('#game-grid .card[data-loop-ready]').length === 5);
-  assert.deepEqual([...fetched].sort(), ['adder', 'bouncer', 'brawler', 'defender', 'rally']);
+  assert.deepEqual([...fetched].sort(), ['adder', 'bouncer', 'defender', 'dojo', 'rally']);
   const strip = await page.evaluate(() => {
     const card = document.querySelector('.card[data-machine="rally"]'), img = card.querySelector('.card-loop-strip');
     return { frames: img.naturalHeight / (img.naturalWidth / (480 / 540)), playing: getComputedStyle(img).animationPlayState,
@@ -478,7 +479,7 @@ test('only the machines near you fetch and play their attract loops', async (t) 
   await page.waitForFunction(() => document.querySelector('.card[data-machine="bubbler"][data-loop-ready]'));
   assert.ok(fetched.includes('bubbler'), 'walking on fetches the next one');
   assert.ok(!fetched.includes('raider') && !fetched.includes('serpent'), `and only that: ${fetched}`);
-  assert.equal(await page.evaluate(() => document.querySelector('.card[data-machine="brawler"]').hasAttribute('data-loop')), false, 'the machine left behind stops');
+  assert.equal(await page.evaluate(() => document.querySelector('.card[data-machine="adder"]').hasAttribute('data-loop')), false, 'the machine left behind stops');
 });
 
 test('Escape leaves a game for the arcade, once the controls card it may have open is put away', async (t) => {
